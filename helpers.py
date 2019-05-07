@@ -4,11 +4,12 @@ import urllib3
 from requests.auth import HTTPBasicAuth
 from tabulate import tabulate
 import json
+import settings
 
 # Silence the insecure warning due to SSL Certificate
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-sp = Silverpeak(user="agitting", user_pass="Axians123!", sp_server="192.168.33.2")
+sp = Silverpeak(user=settings.SP_USER, user_pass=settings.SP_PASS, sp_server=settings.SP_IP)
 
 def appliances():
     appliances = sp.get_appliances()
